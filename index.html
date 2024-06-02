@@ -6,60 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        let humanScore = 0;
-        let computerScore =0;
-        function playRound(humanChoice, computerChoice){
-            console.log(`The computer chose : ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`);
-            if(humanChoice == "rock"){
-                if(computerChoice == "rock") console.log("Tie");
-                if(computerChoice == "paper") {computerScore++; console.log("You Lose! Paper beats Rock");}
-                if(computerChoice == "scissors") {humanScore++; console.log("You Win! Rock beats Scissors");}
-            }
-            if(humanChoice == "paper"){
-                if(computerChoice =="rock") {humanScore++; console.log("You Win! Paper beats Rock");}
-                if(computerChoice == "paper") console.log("Tie");
-                if(computerChoice == "scissors") {computerScore++; console.log("You Lose! Scissors beats Paper");}
-            }
-            if(humanChoice == "scissors"){
-                if(computerChoice == "rock") {computerScore++; console.log("You Lose! Rock beats Scissors");}
-                if(computerChoice == "paper") {humanScore++; console.log("You Win! Scissors beats Rock");}
-                if(computerChoice == "scissors") console.log("Tie");
-            }
-        }
-        function getComputerChoice(){
-            let computer = parseInt(Math.random()*3);
-            switch(computer){
-                case 0:
-                    return "rock";
-                case 1:
-                    return "paper";
-                case 2:
-                    return "scissors";
-            }
-        }
-        
-        function getHumanChoice(){
-            let human = prompt("Pick Rock Paper or Scissors");
-            human = human.toLowerCase();
-            if(human != "rock" && human != "paper" && human != "scissors"){
-                getHumanChoice();
-            }
-            return human;
-        }
-
-        function playGame(){
-            humanScore = 0;
-            computerScore = 0;
-            for(let i = 0; i<6; i++){
-                let humanSelection = getHumanChoice();
-                let computerSelection = getComputerChoice();
-                playRound(humanSelection, computerSelection);
-            }
-            console.log(`Final Scores:\nComputer: ${computerScore}\nHuman: ${humanScore}`);
-        }
-
-        playGame();
-    </script>
+    <button class = "rock"> Rock</button>
+    <button class="paper"> Paper</button>
+    <button class = "scissors"> Scissors</button>
+    <script src = "script.js" defer></script>
 </body>
 </html>
